@@ -5,7 +5,7 @@ renderSeasonsAverage(dataSeries);
 function renderSeriesInTable(series) {
     series.forEach(function (s) {
         var trElement = document.createElement("tr");
-        trElement.innerHTML = "<td>".concat(s.id, "</td>\n                               <td><a class=\"name\" data-parameter=\"").concat(s.id, "\">").concat(s.name, "</a></td>\n                               <td>").concat(s.channel, "</td>\n                               <td>").concat(s.seasons, "</td>");
+        trElement.innerHTML = "<td>".concat(s.id, "</td>\n                               <td><a class=\"name\" href=\"#\" data-parameter=\"").concat(s.id, "\">").concat(s.name, "</a></td>\n                               <td>").concat(s.channel, "</td>\n                               <td>").concat(s.seasons, "</td>");
         seriesTbody.appendChild(trElement);
     });
     var buttons = document.querySelectorAll('.name');
