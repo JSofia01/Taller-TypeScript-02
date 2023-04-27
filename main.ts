@@ -10,10 +10,27 @@ function renderSeriesInTable(series: Serie[]): void {
     series.forEach((s) => {
         let trElement = document.createElement("tr");
         trElement.innerHTML = `<td>${s.id}</td>
-                               <td><a href="#">${s.name}</a></td>
+                               <td><a class="name" data-parameter="${s.id}">${s.name}</a></td>
                                <td>${s.channel}</td>
                                <td>${s.seasons}</td>`;
         seriesTbody.appendChild(trElement);
+    });
+    const buttons = document.querySelectorAll('.name');
+    buttons.forEach((button: Element) => {
+        const parameter = (button as HTMLElement).dataset.parameter;
+        let serie = series.filter(obj => obj.id.toString() === parameter);
+        button.addEventListener('click', () => {
+            const img = document.getElementById('img');
+            const title = document.getElementById('cardtitle')! as HTMLElement;
+            const description = document.getElementById('carddescription')! as HTMLElement;
+            const URL = document.getElementById('URL');
+            serie.forEach((se) => {
+                img!!.textContent = se.img;
+                title.textContent = se.name;
+                description.textContent = se.description;
+                URL!!.textContent = se.URL;
+            });
+    });
     });
 }
 
