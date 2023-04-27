@@ -2,6 +2,10 @@ import {Serie} from './serie.js';
 import {dataSeries} from './dataSeries.js';
 
 const seriesTbody: HTMLElement = document.getElementById('series')!;
+const img = document.getElementById('img') as HTMLImageElement;
+const title = document.getElementById('cardtitle')! as HTMLElement;
+const description = document.getElementById('carddescription')! as HTMLElement;
+const URL = document.getElementById('URL') as HTMLAnchorElement;
 
 renderSeriesInTable(dataSeries);
 renderSeasonsAverage(dataSeries);
@@ -20,10 +24,6 @@ function renderSeriesInTable(series: Serie[]): void {
         const parameter = (button as HTMLElement).dataset.parameter;
         let serie = series.filter(obj => obj.id.toString() === parameter);
         button.addEventListener('click', () => {
-            const img = document.getElementById('img') as HTMLImageElement;
-            const title = document.getElementById('cardtitle')! as HTMLElement;
-            const description = document.getElementById('carddescription')! as HTMLElement;
-            const URL = document.getElementById('URL') as HTMLAnchorElement;
             serie.forEach((se) => {
                 img.setAttribute('src', se.img);
                 title.textContent = se.name;

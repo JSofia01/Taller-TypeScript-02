@@ -1,5 +1,9 @@
 import { dataSeries } from './dataSeries.js';
 var seriesTbody = document.getElementById('series');
+var img = document.getElementById('img');
+var title = document.getElementById('cardtitle');
+var description = document.getElementById('carddescription');
+var URL = document.getElementById('URL');
 renderSeriesInTable(dataSeries);
 renderSeasonsAverage(dataSeries);
 function renderSeriesInTable(series) {
@@ -13,10 +17,6 @@ function renderSeriesInTable(series) {
         var parameter = button.dataset.parameter;
         var serie = series.filter(function (obj) { return obj.id.toString() === parameter; });
         button.addEventListener('click', function () {
-            var img = document.getElementById('img');
-            var title = document.getElementById('cardtitle');
-            var description = document.getElementById('carddescription');
-            var URL = document.getElementById('URL');
             serie.forEach(function (se) {
                 img.setAttribute('src', se.img);
                 title.textContent = se.name;
