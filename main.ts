@@ -20,14 +20,15 @@ function renderSeriesInTable(series: Serie[]): void {
         const parameter = (button as HTMLElement).dataset.parameter;
         let serie = series.filter(obj => obj.id.toString() === parameter);
         button.addEventListener('click', () => {
-            const img = document.getElementById('img') as HTMLElement;
+            const img = document.getElementById('img') as HTMLImageElement;
             const title = document.getElementById('cardtitle')! as HTMLElement;
             const description = document.getElementById('carddescription')! as HTMLElement;
-            const URL = document.getElementById('URL') as HTMLElement;
+            const URL = document.getElementById('URL') as HTMLAnchorElement;
             serie.forEach((se) => {
-                img!!.textContent = se.img;
+                img.setAttribute('src', se.img);
                 title.textContent = se.name;
                 description.textContent = se.description;
+                URL.setAttribute('href', se.URL);
                 URL.textContent = se.URL;
             });
     });

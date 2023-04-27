@@ -18,9 +18,10 @@ function renderSeriesInTable(series) {
             var description = document.getElementById('carddescription');
             var URL = document.getElementById('URL');
             serie.forEach(function (se) {
-                img.textContent = se.img;
+                img.setAttribute('src', se.img);
                 title.textContent = se.name;
                 description.textContent = se.description;
+                URL.setAttribute('href', se.URL);
                 URL.textContent = se.URL;
             });
         });
